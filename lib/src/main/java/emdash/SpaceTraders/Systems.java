@@ -17,20 +17,10 @@ import org.apache.http.NameValuePair;
  */
 public class Systems {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Systems(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Systems(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -41,7 +31,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetJumpGateResponse getJumpGate(emdash.SpaceTraders.models.operations.GetJumpGateRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetJumpGateRequest.class, baseUrl, "/systems/{systemSymbol}/waypoints/{waypointSymbol}/jump-gate", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -49,9 +39,9 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -81,7 +71,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetMarketResponse getMarket(emdash.SpaceTraders.models.operations.GetMarketRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetMarketRequest.class, baseUrl, "/systems/{systemSymbol}/waypoints/{waypointSymbol}/market", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -89,9 +79,9 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -121,7 +111,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetShipyardResponse getShipyard(emdash.SpaceTraders.models.operations.GetShipyardRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetShipyardRequest.class, baseUrl, "/systems/{systemSymbol}/waypoints/{waypointSymbol}/shipyard", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -129,9 +119,9 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -161,7 +151,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetSystemResponse getSystem(emdash.SpaceTraders.models.operations.GetSystemRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetSystemRequest.class, baseUrl, "/systems/{systemSymbol}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -169,9 +159,9 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -202,7 +192,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetSystemWaypointsResponse getSystemWaypoints(emdash.SpaceTraders.models.operations.GetSystemWaypointsRequest request, emdash.SpaceTraders.models.operations.GetSystemWaypointsSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetSystemWaypointsRequest.class, baseUrl, "/systems/{systemSymbol}/waypoints", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -210,7 +200,7 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = emdash.SpaceTraders.utils.Utils.getQueryParams(emdash.SpaceTraders.models.operations.GetSystemWaypointsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -218,7 +208,7 @@ public class Systems {
             }
         }
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -248,7 +238,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetSystemsResponse getSystems(emdash.SpaceTraders.models.operations.GetSystemsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/systems");
         
         HTTPRequest req = new HTTPRequest();
@@ -256,7 +246,7 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = emdash.SpaceTraders.utils.Utils.getQueryParams(emdash.SpaceTraders.models.operations.GetSystemsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -264,7 +254,7 @@ public class Systems {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -294,7 +284,7 @@ public class Systems {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetWaypointResponse getWaypoint(emdash.SpaceTraders.models.operations.GetWaypointRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetWaypointRequest.class, baseUrl, "/systems/{systemSymbol}/waypoints/{waypointSymbol}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -302,9 +292,9 @@ public class Systems {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

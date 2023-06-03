@@ -66,21 +66,13 @@ public class SpaceTraders {
      */
     public Systems systems;	
 
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private emdash.SpaceTraders.models.shared.Security _security;
-	private String _serverUrl;
-	private String _language = "java";
-	private String _sdkVersion = "1.1.1";
-	private String _genVersion = "2.34.7";
+	private SDKConfiguration sdkConfiguration;
+
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.
 	 */
 	public static class Builder {
-		private HTTPClient client;
-		private emdash.SpaceTraders.models.shared.Security security;
-		private String serverUrl;
-		private java.util.Map<String, String> params = new java.util.HashMap<String, String>();
+		private SDKConfiguration sdkConfiguration = new SDKConfiguration();
 
 		private Builder() {
 		}
@@ -91,7 +83,7 @@ public class SpaceTraders {
 		 * @return The builder instance.
 		 */
 		public Builder setClient(HTTPClient client) {
-			this.client = client;
+			this.sdkConfiguration.defaultClient = client;
 			return this;
 		}
 		
@@ -101,7 +93,7 @@ public class SpaceTraders {
 		 * @return The builder instance.
 		 */
 		public Builder setSecurity(emdash.SpaceTraders.models.shared.Security security) {
-			this.security = security;
+			this.sdkConfiguration.security = security;
 			return this;
 		}
 		
@@ -111,7 +103,7 @@ public class SpaceTraders {
 		 * @return The builder instance.
 		 */
 		public Builder setServerURL(String serverUrl) {
-			this.serverUrl = serverUrl;
+			this.sdkConfiguration.serverUrl = serverUrl;
 			return this;
 		}
 		
@@ -122,8 +114,18 @@ public class SpaceTraders {
 		 * @return The builder instance.
 		 */
 		public Builder setServerURL(String serverUrl, java.util.Map<String, String> params) {
-			this.serverUrl = serverUrl;
-			this.params = params;
+			this.sdkConfiguration.serverUrl = emdash.SpaceTraders.utils.Utils.templateUrl(serverUrl, params);
+			return this;
+		}
+		
+		/**
+		 * Allows the overriding of the default server by index
+		 * @param serverIdx The server to use for all requests.
+		 * @return The builder instance.
+		 */
+		public Builder setServerIndex(int serverIdx) {
+			this.sdkConfiguration.serverIdx = serverIdx;
+			this.sdkConfiguration.serverUrl = SERVERS[serverIdx];
 			return this;
 		}
 		
@@ -133,7 +135,28 @@ public class SpaceTraders {
 		 * @throws Exception Thrown if the SDK could not be built.
 		 */
 		public SpaceTraders build() throws Exception {
-			return new SpaceTraders(this.client, this.security, this.serverUrl, this.params);
+			if (this.sdkConfiguration.defaultClient == null) {
+				this.sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
+			}
+			
+			if (this.sdkConfiguration.security != null) {
+				this.sdkConfiguration.securityClient = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, this.sdkConfiguration.security);
+			}
+			
+			if (this.sdkConfiguration.securityClient == null) {
+				this.sdkConfiguration.securityClient = this.sdkConfiguration.defaultClient;
+			}
+			
+			if (this.sdkConfiguration.serverUrl == null || this.sdkConfiguration.serverUrl.isBlank()) {
+				this.sdkConfiguration.serverUrl = SERVERS[0];
+				this.sdkConfiguration.serverIdx = 0;
+			}
+
+			if (this.sdkConfiguration.serverUrl.endsWith("/")) {
+				this.sdkConfiguration.serverUrl = this.sdkConfiguration.serverUrl.substring(0, this.sdkConfiguration.serverUrl.length() - 1);
+			}
+			
+			return new SpaceTraders(this.sdkConfiguration);
 		}
 	}
 
@@ -145,80 +168,18 @@ public class SpaceTraders {
 		return new Builder();
 	}
 
-	private SpaceTraders(HTTPClient client, emdash.SpaceTraders.models.shared.Security security, String serverUrl, java.util.Map<String, String> params) throws Exception {
-		this._defaultClient = client;
+	private SpaceTraders(SDKConfiguration sdkConfiguration) throws Exception {
+		this.sdkConfiguration = sdkConfiguration;
 		
-		if (this._defaultClient == null) {
-			this._defaultClient = new SpeakeasyHTTPClient();
-		}
+		this.agents = new Agents(this.sdkConfiguration);
 		
-		if (security != null) {
-			this._security = security;
-			this._securityClient = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, this._security);
-		}
+		this.contracts = new Contracts(this.sdkConfiguration);
 		
-		if (this._securityClient == null) {
-			this._securityClient = this._defaultClient;
-		}
-
-		if (serverUrl != null && !serverUrl.isBlank()) {
-			this._serverUrl = emdash.SpaceTraders.utils.Utils.templateUrl(serverUrl, params);
-		}
+		this.factions = new Factions(this.sdkConfiguration);
 		
-		if (this._serverUrl == null) {
-			this._serverUrl = SERVERS[0];
-		}
-
-		if (this._serverUrl.endsWith("/")) {
-            this._serverUrl = this._serverUrl.substring(0, this._serverUrl.length() - 1);
-        }
-
+		this.fleet = new Fleet(this.sdkConfiguration);
 		
-		
-		this.agents = new Agents(
-			this._defaultClient,
-			this._securityClient,
-			this._serverUrl,
-			this._language,
-			this._sdkVersion,
-			this._genVersion
-		);
-		
-		this.contracts = new Contracts(
-			this._defaultClient,
-			this._securityClient,
-			this._serverUrl,
-			this._language,
-			this._sdkVersion,
-			this._genVersion
-		);
-		
-		this.factions = new Factions(
-			this._defaultClient,
-			this._securityClient,
-			this._serverUrl,
-			this._language,
-			this._sdkVersion,
-			this._genVersion
-		);
-		
-		this.fleet = new Fleet(
-			this._defaultClient,
-			this._securityClient,
-			this._serverUrl,
-			this._language,
-			this._sdkVersion,
-			this._genVersion
-		);
-		
-		this.systems = new Systems(
-			this._defaultClient,
-			this._securityClient,
-			this._serverUrl,
-			this._language,
-			this._sdkVersion,
-			this._genVersion
-		);
+		this.systems = new Systems(this.sdkConfiguration);
 	}
 
     /**
@@ -228,7 +189,7 @@ public class SpaceTraders {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetStatusResponse getStatus() throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/");
         
         HTTPRequest req = new HTTPRequest();
@@ -236,9 +197,9 @@ public class SpaceTraders {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -282,7 +243,7 @@ public class SpaceTraders {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.RegisterResponse register(emdash.SpaceTraders.models.operations.RegisterRequestBody request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/register");
         
         HTTPRequest req = new HTTPRequest();
@@ -292,9 +253,9 @@ public class SpaceTraders {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

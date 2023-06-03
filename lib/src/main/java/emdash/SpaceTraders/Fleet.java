@@ -18,20 +18,10 @@ import org.apache.http.NameValuePair;
  */
 public class Fleet {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Fleet(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Fleet(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -47,7 +37,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.CreateChartResponse createChart(emdash.SpaceTraders.models.operations.CreateChartRequest request, emdash.SpaceTraders.models.operations.CreateChartSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.CreateChartRequest.class, baseUrl, "/my/ships/{shipSymbol}/chart", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -55,9 +45,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -88,7 +78,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.CreateShipShipScanResponse createShipShipScan(emdash.SpaceTraders.models.operations.CreateShipShipScanRequest request, emdash.SpaceTraders.models.operations.CreateShipShipScanSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.CreateShipShipScanRequest.class, baseUrl, "/my/ships/{shipSymbol}/scan/ships", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -96,9 +86,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -129,7 +119,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.CreateShipSystemScanResponse createShipSystemScan(emdash.SpaceTraders.models.operations.CreateShipSystemScanRequest request, emdash.SpaceTraders.models.operations.CreateShipSystemScanSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.CreateShipSystemScanRequest.class, baseUrl, "/my/ships/{shipSymbol}/scan/systems", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -137,9 +127,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -170,7 +160,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.CreateShipWaypointScanResponse createShipWaypointScan(emdash.SpaceTraders.models.operations.CreateShipWaypointScanRequest request, emdash.SpaceTraders.models.operations.CreateShipWaypointScanSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.CreateShipWaypointScanRequest.class, baseUrl, "/my/ships/{shipSymbol}/scan/waypoints", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -178,9 +168,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -213,7 +203,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.CreateSurveyResponse createSurvey(emdash.SpaceTraders.models.operations.CreateSurveyRequest request, emdash.SpaceTraders.models.operations.CreateSurveySecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.CreateSurveyRequest.class, baseUrl, "/my/ships/{shipSymbol}/survey", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -221,9 +211,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -256,7 +246,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.DockShipResponse dockShip(emdash.SpaceTraders.models.operations.DockShipRequest request, emdash.SpaceTraders.models.operations.DockShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.DockShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/dock", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -264,9 +254,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -297,7 +287,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.ExtractResourcesResponse extractResources(emdash.SpaceTraders.models.operations.ExtractResourcesRequest request, emdash.SpaceTraders.models.operations.ExtractResourcesSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.ExtractResourcesRequest.class, baseUrl, "/my/ships/{shipSymbol}/extract", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -307,9 +297,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -340,7 +330,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetMyShipResponse getMyShip(emdash.SpaceTraders.models.operations.GetMyShipRequest request, emdash.SpaceTraders.models.operations.GetMyShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetMyShipRequest.class, baseUrl, "/my/ships/{shipSymbol}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -348,9 +338,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -381,7 +371,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetMyShipCargoResponse getMyShipCargo(emdash.SpaceTraders.models.operations.GetMyShipCargoRequest request, emdash.SpaceTraders.models.operations.GetMyShipCargoSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetMyShipCargoRequest.class, baseUrl, "/my/ships/{shipSymbol}/cargo", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -389,9 +379,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -422,7 +412,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetMyShipsResponse getMyShips(emdash.SpaceTraders.models.operations.GetMyShipsRequest request, emdash.SpaceTraders.models.operations.GetMyShipsSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/my/ships");
         
         HTTPRequest req = new HTTPRequest();
@@ -430,7 +420,7 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = emdash.SpaceTraders.utils.Utils.getQueryParams(emdash.SpaceTraders.models.operations.GetMyShipsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -438,7 +428,7 @@ public class Fleet {
             }
         }
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -473,7 +463,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetShipCooldownResponse getShipCooldown(emdash.SpaceTraders.models.operations.GetShipCooldownRequest request, emdash.SpaceTraders.models.operations.GetShipCooldownSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetShipCooldownRequest.class, baseUrl, "/my/ships/{shipSymbol}/cooldown", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -481,9 +471,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -516,7 +506,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetShipNavResponse getShipNav(emdash.SpaceTraders.models.operations.GetShipNavRequest request, emdash.SpaceTraders.models.operations.GetShipNavSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetShipNavRequest.class, baseUrl, "/my/ships/{shipSymbol}/nav", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -524,9 +514,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -557,7 +547,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.JettisonResponse jettison(emdash.SpaceTraders.models.operations.JettisonRequest request, emdash.SpaceTraders.models.operations.JettisonSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.JettisonRequest.class, baseUrl, "/my/ships/{shipSymbol}/jettison", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -567,9 +557,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -600,7 +590,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.JumpShipResponse jumpShip(emdash.SpaceTraders.models.operations.JumpShipRequest request, emdash.SpaceTraders.models.operations.JumpShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.JumpShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/jump", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -610,9 +600,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -647,7 +637,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.NavigateShipResponse navigateShip(emdash.SpaceTraders.models.operations.NavigateShipRequest request, emdash.SpaceTraders.models.operations.NavigateShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.NavigateShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/navigate", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -657,9 +647,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -689,7 +679,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.NegotiateContractResponse negotiateContract(emdash.SpaceTraders.models.operations.NegotiateContractRequest request, emdash.SpaceTraders.models.operations.NegotiateContractSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.NegotiateContractRequest.class, baseUrl, "/my/ships/{shipSymbol}/negotiate/contract", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -699,9 +689,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -734,7 +724,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.OrbitShipResponse orbitShip(emdash.SpaceTraders.models.operations.OrbitShipRequest request, emdash.SpaceTraders.models.operations.OrbitShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.OrbitShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/orbit", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -742,9 +732,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -775,7 +765,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.PatchShipNavResponse patchShipNav(emdash.SpaceTraders.models.operations.PatchShipNavRequest request, emdash.SpaceTraders.models.operations.PatchShipNavSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.PatchShipNavRequest.class, baseUrl, "/my/ships/{shipSymbol}/nav", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -785,9 +775,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -818,7 +808,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.PurchaseCargoResponse purchaseCargo(emdash.SpaceTraders.models.operations.PurchaseCargoRequest request, emdash.SpaceTraders.models.operations.PurchaseCargoSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.PurchaseCargoRequest.class, baseUrl, "/my/ships/{shipSymbol}/purchase", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -828,9 +818,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -861,7 +851,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.PurchaseShipResponse purchaseShip(emdash.SpaceTraders.models.operations.PurchaseShipRequestBody request, emdash.SpaceTraders.models.operations.PurchaseShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/my/ships");
         
         HTTPRequest req = new HTTPRequest();
@@ -871,9 +861,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -904,7 +894,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.RefuelShipResponse refuelShip(emdash.SpaceTraders.models.operations.RefuelShipRequest request, emdash.SpaceTraders.models.operations.RefuelShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.RefuelShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/refuel", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -912,9 +902,9 @@ public class Fleet {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -945,7 +935,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.SellCargoResponse sellCargo(emdash.SpaceTraders.models.operations.SellCargoRequest request, emdash.SpaceTraders.models.operations.SellCargoSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.SellCargoRequest.class, baseUrl, "/my/ships/{shipSymbol}/sell", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -955,9 +945,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -988,7 +978,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.ShipRefineResponse shipRefine(emdash.SpaceTraders.models.operations.ShipRefineRequest request, emdash.SpaceTraders.models.operations.ShipRefineSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.ShipRefineRequest.class, baseUrl, "/my/ships/{shipSymbol}/refine", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -998,9 +988,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1031,7 +1021,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.TransferCargoResponse transferCargo(emdash.SpaceTraders.models.operations.TransferCargoRequest request, emdash.SpaceTraders.models.operations.TransferCargoSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.TransferCargoRequest.class, baseUrl, "/my/ships/{shipSymbol}/transfer", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1041,9 +1031,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1076,7 +1066,7 @@ public class Fleet {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.WarpShipResponse warpShip(emdash.SpaceTraders.models.operations.WarpShipRequest request, emdash.SpaceTraders.models.operations.WarpShipSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.WarpShipRequest.class, baseUrl, "/my/ships/{shipSymbol}/warp", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1086,9 +1076,9 @@ public class Fleet {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

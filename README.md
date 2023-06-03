@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'emdash.SpaceTraders:SpaceTraders:1.1.1'
+implementation 'emdash.SpaceTraders:SpaceTraders:1.2.0'
 ```
 <!-- End SDK Installation -->
 

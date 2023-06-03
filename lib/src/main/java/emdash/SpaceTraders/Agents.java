@@ -16,20 +16,10 @@ import java.nio.charset.StandardCharsets;
  */
 public class Agents {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Agents(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Agents(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -40,7 +30,7 @@ public class Agents {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetMyAgentResponse getMyAgent(emdash.SpaceTraders.models.operations.GetMyAgentSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/my/agent");
         
         HTTPRequest req = new HTTPRequest();
@@ -48,9 +38,9 @@ public class Agents {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

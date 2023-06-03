@@ -18,20 +18,10 @@ import org.apache.http.NameValuePair;
  */
 public class Contracts {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Contracts(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Contracts(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -43,7 +33,7 @@ public class Contracts {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.AcceptContractResponse acceptContract(emdash.SpaceTraders.models.operations.AcceptContractRequest request, emdash.SpaceTraders.models.operations.AcceptContractSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.AcceptContractRequest.class, baseUrl, "/my/contracts/{contractId}/accept", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -51,9 +41,9 @@ public class Contracts {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -84,7 +74,7 @@ public class Contracts {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.DeliverContractResponse deliverContract(emdash.SpaceTraders.models.operations.DeliverContractRequest request, emdash.SpaceTraders.models.operations.DeliverContractSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.DeliverContractRequest.class, baseUrl, "/my/contracts/{contractId}/deliver", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -94,9 +84,9 @@ public class Contracts {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -127,7 +117,7 @@ public class Contracts {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.FulfillContractResponse fulfillContract(emdash.SpaceTraders.models.operations.FulfillContractRequest request, emdash.SpaceTraders.models.operations.FulfillContractSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.FulfillContractRequest.class, baseUrl, "/my/contracts/{contractId}/fulfill", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -135,9 +125,9 @@ public class Contracts {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -168,7 +158,7 @@ public class Contracts {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetContractResponse getContract(emdash.SpaceTraders.models.operations.GetContractRequest request, emdash.SpaceTraders.models.operations.GetContractSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(emdash.SpaceTraders.models.operations.GetContractRequest.class, baseUrl, "/my/contracts/{contractId}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -176,9 +166,9 @@ public class Contracts {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -209,7 +199,7 @@ public class Contracts {
      * @throws Exception if the API call fails
      */
     public emdash.SpaceTraders.models.operations.GetContractsResponse getContracts(emdash.SpaceTraders.models.operations.GetContractsRequest request, emdash.SpaceTraders.models.operations.GetContractsSecurity security) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = emdash.SpaceTraders.utils.Utils.generateURL(baseUrl, "/my/contracts");
         
         HTTPRequest req = new HTTPRequest();
@@ -217,7 +207,7 @@ public class Contracts {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = emdash.SpaceTraders.utils.Utils.getQueryParams(emdash.SpaceTraders.models.operations.GetContractsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -225,7 +215,7 @@ public class Contracts {
             }
         }
         
-        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this._defaultClient, security);
+        HTTPClient client = emdash.SpaceTraders.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, security);
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
