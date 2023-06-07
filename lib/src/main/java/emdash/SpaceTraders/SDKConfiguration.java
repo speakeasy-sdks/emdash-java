@@ -14,7 +14,7 @@ class SDKConfiguration {
 	public String serverUrl;
 	public int serverIdx = 0;
 	public String language = "java";
-	public String sdkVersion = "1.2.0";
-	public String genVersion = "2.35.3";
+	public String sdkVersion = "1.2.1";
+	public String genVersion = "2.35.9";
 	
 }
