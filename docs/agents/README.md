@@ -29,7 +29,7 @@ public class Application {
                 .build();
 
             GetMyAgentResponse res = sdk.agents.getMyAgent(new GetMyAgentSecurity("deserunt") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getMyAgent200ApplicationJSONObject != null) {

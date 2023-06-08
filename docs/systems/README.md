@@ -33,7 +33,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("repellat") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -70,7 +70,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("numquam") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -107,7 +107,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("molestiae") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -144,7 +144,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("quia") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -189,7 +189,7 @@ public class Application {
             }};            
 
             GetSystemWaypointsResponse res = sdk.systems.getSystemWaypoints(req, new GetSystemWaypointsSecurity("enim") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getSystemWaypoints200ApplicationJSONObject != null) {
@@ -221,7 +221,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("odit") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -261,7 +261,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("tenetur") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 

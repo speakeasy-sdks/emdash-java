@@ -43,7 +43,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("provident") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 
@@ -93,7 +93,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("distinctio") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 

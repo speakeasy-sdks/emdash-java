@@ -36,7 +36,7 @@ public class Application {
             AcceptContractRequest req = new AcceptContractRequest("suscipit");            
 
             AcceptContractResponse res = sdk.contracts.acceptContract(req, new AcceptContractSecurity("iure") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.acceptContract200ApplicationJSONObject != null) {
@@ -76,7 +76,7 @@ public class Application {
             }};            
 
             DeliverContractResponse res = sdk.contracts.deliverContract(req, new DeliverContractSecurity("tempora") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.deliverContract200ApplicationJSONObject != null) {
@@ -113,7 +113,7 @@ public class Application {
             FulfillContractRequest req = new FulfillContractRequest("suscipit");            
 
             FulfillContractResponse res = sdk.contracts.fulfillContract(req, new FulfillContractSecurity("molestiae") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.fulfillContract200ApplicationJSONObject != null) {
@@ -150,7 +150,7 @@ public class Application {
             GetContractRequest req = new GetContractRequest("minus");            
 
             GetContractResponse res = sdk.contracts.getContract(req, new GetContractSecurity("placeat") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getContract200ApplicationJSONObject != null) {
@@ -190,7 +190,7 @@ public class Application {
             }};            
 
             GetContractsResponse res = sdk.contracts.getContracts(req, new GetContractsSecurity("excepturi") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getContracts200ApplicationJSONObject != null) {

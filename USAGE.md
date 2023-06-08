@@ -11,7 +11,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("corrupti") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 

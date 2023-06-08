@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'emdash.SpaceTraders:SpaceTraders:1.2.1'
+implementation 'emdash.SpaceTraders:SpaceTraders:1.3.0'
 ```
 <!-- End SDK Installation -->
 
@@ -24,7 +24,7 @@ public class Application {
         try {
             SpaceTraders sdk = SpaceTraders.builder()
                 .setSecurity(new Security("corrupti") {{
-                    agentToken = "YOUR_BEARER_TOKEN_HERE";
+                    agentToken = "";
                 }})
                 .build();
 

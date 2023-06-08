@@ -60,7 +60,7 @@ public class Application {
             CreateChartRequest req = new CreateChartRequest("veritatis");            
 
             CreateChartResponse res = sdk.fleet.createChart(req, new CreateChartSecurity("deserunt") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.createChart201ApplicationJSONObject != null) {
@@ -97,7 +97,7 @@ public class Application {
             CreateShipShipScanRequest req = new CreateShipShipScanRequest("perferendis");            
 
             CreateShipShipScanResponse res = sdk.fleet.createShipShipScan(req, new CreateShipShipScanSecurity("ipsam") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.createShipShipScan201ApplicationJSONObject != null) {
@@ -134,7 +134,7 @@ public class Application {
             CreateShipSystemScanRequest req = new CreateShipSystemScanRequest("repellendus");            
 
             CreateShipSystemScanResponse res = sdk.fleet.createShipSystemScan(req, new CreateShipSystemScanSecurity("sapiente") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.createShipSystemScan201ApplicationJSONObject != null) {
@@ -171,7 +171,7 @@ public class Application {
             CreateShipWaypointScanRequest req = new CreateShipWaypointScanRequest("quo");            
 
             CreateShipWaypointScanResponse res = sdk.fleet.createShipWaypointScan(req, new CreateShipWaypointScanSecurity("odit") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.createShipWaypointScan201ApplicationJSONObject != null) {
@@ -210,7 +210,7 @@ public class Application {
             CreateSurveyRequest req = new CreateSurveyRequest("at");            
 
             CreateSurveyResponse res = sdk.fleet.createSurvey(req, new CreateSurveySecurity("at") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.createSurvey201ApplicationJSONObject != null) {
@@ -249,7 +249,7 @@ public class Application {
             DockShipRequest req = new DockShipRequest("maiores");            
 
             DockShipResponse res = sdk.fleet.dockShip(req, new DockShipSecurity("molestiae") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.dockShip200Response != null) {
@@ -308,7 +308,7 @@ public class Application {
             }};            
 
             ExtractResourcesResponse res = sdk.fleet.extractResources(req, new ExtractResourcesSecurity("beatae") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.extractResources201ApplicationJSONObject != null) {
@@ -345,7 +345,7 @@ public class Application {
             GetMyShipRequest req = new GetMyShipRequest("commodi");            
 
             GetMyShipResponse res = sdk.fleet.getMyShip(req, new GetMyShipSecurity("molestiae") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getMyShip200ApplicationJSONObject != null) {
@@ -382,7 +382,7 @@ public class Application {
             GetMyShipCargoRequest req = new GetMyShipCargoRequest("modi");            
 
             GetMyShipCargoResponse res = sdk.fleet.getMyShipCargo(req, new GetMyShipCargoSecurity("qui") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getMyShipCargo200ApplicationJSONObject != null) {
@@ -422,7 +422,7 @@ public class Application {
             }};            
 
             GetMyShipsResponse res = sdk.fleet.getMyShips(req, new GetMyShipsSecurity("esse") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getMyShips200ApplicationJSONObject != null) {
@@ -463,7 +463,7 @@ public class Application {
             GetShipCooldownRequest req = new GetShipCooldownRequest("ipsum");            
 
             GetShipCooldownResponse res = sdk.fleet.getShipCooldown(req, new GetShipCooldownSecurity("excepturi") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getShipCooldown200ApplicationJSONObject != null) {
@@ -500,7 +500,7 @@ public class Application {
             GetShipNavRequest req = new GetShipNavRequest("aspernatur");            
 
             GetShipNavResponse res = sdk.fleet.getShipNav(req, new GetShipNavSecurity("perferendis") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.getShipNav200ApplicationJSONObject != null) {
@@ -540,7 +540,7 @@ public class Application {
             }};            
 
             JettisonResponse res = sdk.fleet.jettison(req, new JettisonSecurity("iste") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.jettison200ApplicationJSONObject != null) {
@@ -580,7 +580,7 @@ public class Application {
             }};            
 
             JumpShipResponse res = sdk.fleet.jumpShip(req, new JumpShipSecurity("laboriosam") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.jumpShip200ApplicationJSONObject != null) {
@@ -624,7 +624,7 @@ public class Application {
             }};            
 
             NavigateShipResponse res = sdk.fleet.navigateShip(req, new NavigateShipSecurity("fuga") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.navigateShip200ApplicationJSONObject != null) {
@@ -663,7 +663,7 @@ public class Application {
             }};            
 
             NegotiateContractResponse res = sdk.fleet.negotiateContract(req, new NegotiateContractSecurity("iste") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.negotiateContract200Response != null) {
@@ -702,7 +702,7 @@ public class Application {
             OrbitShipRequest req = new OrbitShipRequest("iure");            
 
             OrbitShipResponse res = sdk.fleet.orbitShip(req, new OrbitShipSecurity("saepe") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.orbitShip200Response != null) {
@@ -745,7 +745,7 @@ public class Application {
             }};            
 
             PatchShipNavResponse res = sdk.fleet.patchShipNav(req, new PatchShipNavSecurity("ipsa") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.patchShipNav200ApplicationJSONObject != null) {
@@ -785,7 +785,7 @@ public class Application {
             }};            
 
             PurchaseCargoResponse res = sdk.fleet.purchaseCargo(req, new PurchaseCargoSecurity("laborum") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.purchaseCargo201Response != null) {
@@ -823,7 +823,7 @@ public class Application {
             PurchaseShipRequestBody req = new PurchaseShipRequestBody(ShipType.SHIP_MINING_DRONE, "dolorem");            
 
             PurchaseShipResponse res = sdk.fleet.purchaseShip(req, new PurchaseShipSecurity("corporis") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.purchaseShip201ApplicationJSONObject != null) {
@@ -860,7 +860,7 @@ public class Application {
             RefuelShipRequest req = new RefuelShipRequest("explicabo");            
 
             RefuelShipResponse res = sdk.fleet.refuelShip(req, new RefuelShipSecurity("nobis") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.refuelShip200ApplicationJSONObject != null) {
@@ -900,7 +900,7 @@ public class Application {
             }};            
 
             SellCargoResponse res = sdk.fleet.sellCargo(req, new SellCargoSecurity("minima") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.sellCargo201Response != null) {
@@ -941,7 +941,7 @@ public class Application {
             }};            
 
             ShipRefineResponse res = sdk.fleet.shipRefine(req, new ShipRefineSecurity("iure") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.shipRefine200Response != null) {
@@ -981,7 +981,7 @@ public class Application {
             }};            
 
             TransferCargoResponse res = sdk.fleet.transferCargo(req, new TransferCargoSecurity("mollitia") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.transferCargo200Response != null) {
@@ -1023,7 +1023,7 @@ public class Application {
             }};            
 
             WarpShipResponse res = sdk.fleet.warpShip(req, new WarpShipSecurity("consequuntur") {{
-                agentToken = "YOUR_BEARER_TOKEN_HERE";
+                agentToken = "";
             }});
 
             if (res.warpShip200ApplicationJSONObject != null) {
