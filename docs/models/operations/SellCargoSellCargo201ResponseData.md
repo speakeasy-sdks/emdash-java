@@ -1,0 +1,10 @@
+# SellCargoSellCargo201ResponseData
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `agent`                                                                                         | [emdash.SpaceTraders.models.shared.Agent](../../models/shared/Agent.md)                         | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `cargo`                                                                                         | [emdash.SpaceTraders.models.shared.ShipCargo](../../models/shared/ShipCargo.md)                 | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `transaction`                                                                                   | [emdash.SpaceTraders.models.shared.MarketTransaction](../../models/shared/MarketTransaction.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |

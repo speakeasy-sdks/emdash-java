@@ -1,0 +1,10 @@
+# ContractTerms
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `deadline`                                                                                | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_check_mark:                                                                        | The deadline for the contract.                                                            |
+| `deliver`                                                                                 | List<[ContractDeliverGood](../../models/shared/ContractDeliverGood.md)>                   | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `payment`                                                                                 | [ContractPayment](../../models/shared/ContractPayment.md)                                 | :heavy_check_mark:                                                                        | N/A                                                                                       |
